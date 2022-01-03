@@ -68,3 +68,23 @@ export default defineComponent({
 </script>
 ```
 
+### React:
+(Although there's probably better ways to do this in React)
+```tsx
+import Debouncer from "svelte-debouncer";
+
+function App() {
+
+  function search(query: string) {
+    alert(`Searching for ${query}`);
+  }
+
+  const search_debouncer = new Debouncer(search, 1000, true);
+
+  return (
+    <input placeholder="Search" onChange={(e) => search_debouncer.debounce(e.target.value)}/>
+  );
+}
+
+export default App;
+```
