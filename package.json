@@ -1,6 +1,6 @@
 {
   "name": "svelte-debouncer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple debouncer library for svelte (can also be used without it)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
