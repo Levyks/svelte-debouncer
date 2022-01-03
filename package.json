@@ -1,6 +1,6 @@
 {
   "name": "svelte-debouncer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simple debouncer library for svelte (can also be used without it)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,7 @@
   "author": "Levy Barbosa <marcio.levy20@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Levyks/promise-bs-dialogs.git"
+    "url": "https://github.com/Levyks/svelte-debouncer.git"
   },
   "license": "GPLv3",
   "devDependencies": {
