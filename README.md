@@ -42,4 +42,29 @@ npm install svelte-debouncer
 Despite it's name, this module can be used without Svelte.
 
 You'll just need to pass `true` as the third argument of the constructor (`debounce_first`) and then call the `debounce` method on the input event of the field you want to debounce.
+	
+### Vue:
+```vue
+<template>
+	<input placeholder="Search" @input="search_debouncer.debounce($event.target.value)">
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import Debouncer from 'svelte-debouncer';
+
+export default defineComponent({
+  data() {
+    return {
+      search_debouncer: new Debouncer(this.search, 1000, true),
+    }
+  },
+  methods: {
+    search(query: string) {
+      alert(`Searching for ${query}`);
+    }  
+  }
+});
+</script>
+```
 
