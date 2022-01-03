@@ -4,7 +4,7 @@ export default class Debouncer{
   is_first_debounce: boolean = true;
 
   constructor(
-    public callback: (...args: any[]) => any,
+    public callback: Function,
     public delay: number = 1000,
     public debounce_first: boolean = false
   ) {}
