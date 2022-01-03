@@ -69,7 +69,7 @@ export default defineComponent({
 ```
 
 ### React:
-(Although there's probably better ways to do this in React)
+(Although there's probably better alternatives to debounce inputs in React)
 ```tsx
 import Debouncer from "svelte-debouncer";
 
