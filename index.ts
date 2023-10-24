@@ -1,16 +1,15 @@
-export default class Debouncer{
+export default class Debouncer<A extends any[]>{
 
-  timer: number = null;
+  timer: number = null as any as number;
   is_first_debounce: boolean = true;
 
   constructor(
-    public callback: Function,
+    public callback: (...args: A) => void,
     public delay: number = 1000,
     public debounce_first: boolean = false
   ) {}
 
-  debounce(...args:  any[]) {
-
+  debounce(...args: A) {
     if(this.is_first_debounce && !this.debounce_first) {
       this.is_first_debounce = false;
       return;
