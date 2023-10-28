@@ -1,22 +1,23 @@
-export default class Debouncer{
-
-  timer: number = null;
+export default class Debouncer<A extends any[]> {
+  timer: number | null = null;
   is_first_debounce: boolean = true;
 
   constructor(
-    public callback: Function,
+    public callback: (...args: A) => void,
     public delay: number = 1000,
     public debounce_first: boolean = false
   ) {}
 
-  debounce(...args:  any[]) {
-
-    if(this.is_first_debounce && !this.debounce_first) {
+  debounce(...args: A) {
+    if (this.is_first_debounce && !this.debounce_first) {
       this.is_first_debounce = false;
       return;
     }
 
-    window.clearTimeout(this.timer);
+    if (this.timer) {
+      window.clearTimeout(this.timer);
+      this.timer = null;
+    }
     this.timer = window.setTimeout(() => {
       this.callback(...args);
     }, this.delay);
