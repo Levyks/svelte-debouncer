@@ -1,6 +1,5 @@
-export default class Debouncer<A extends any[]>{
-
-  timer: number = null as any as number;
+export default class Debouncer<A extends any[]> {
+  timer: number | null = null;
   is_first_debounce: boolean = true;
 
   constructor(
@@ -10,12 +9,15 @@ export default class Debouncer<A extends any[]>{
   ) {}
 
   debounce(...args: A) {
-    if(this.is_first_debounce && !this.debounce_first) {
+    if (this.is_first_debounce && !this.debounce_first) {
       this.is_first_debounce = false;
       return;
     }
 
-    window.clearTimeout(this.timer);
+    if (this.timer) {
+      window.clearTimeout(this.timer);
+      this.timer = null;
+    }
     this.timer = window.setTimeout(() => {
       this.callback(...args);
     }, this.delay);
